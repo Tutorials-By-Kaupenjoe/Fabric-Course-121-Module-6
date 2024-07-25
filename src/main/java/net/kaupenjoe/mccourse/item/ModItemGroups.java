@@ -61,6 +61,8 @@ public class ModItemGroups {
 
                         entries.add(ModBlocks.BLACKWOOD_SAPLING);
 
+                        entries.add(ModBlocks.DAHLIA);
+
                     }).build());
 
     public static void registerItemGroups() {

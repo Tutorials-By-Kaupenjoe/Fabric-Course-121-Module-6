@@ -2,6 +2,7 @@ package net.kaupenjoe.mccourse.block;
 
 import net.kaupenjoe.mccourse.MCCourseMod;
 import net.kaupenjoe.mccourse.block.custom.MagicBlock;
+import net.kaupenjoe.mccourse.block.custom.ModSaplingBlock;
 import net.kaupenjoe.mccourse.world.tree.ModSaplingGenerators;
 import net.minecraft.block.*;
 import net.minecraft.entity.effect.StatusEffects;
@@ -73,7 +74,7 @@ public class ModBlocks {
             new LeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES)));
 
     public static final Block BLACKWOOD_SAPLING = registerBlock("blackwood_sapling",
-            new SaplingBlock(ModSaplingGenerators.BLACKWOOD, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
+            new ModSaplingBlock(ModSaplingGenerators.BLACKWOOD, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING), Blocks.END_STONE));
 
     public static final Block DAHLIA = registerBlock("dahlia",
             new FlowerBlock(StatusEffects.BAD_OMEN, 4, Block.Settings.copy(Blocks.ALLIUM)));

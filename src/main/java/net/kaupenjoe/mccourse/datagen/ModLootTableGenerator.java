@@ -46,6 +46,15 @@ public class ModLootTableGenerator extends FabricBlockLootTableProvider {
 
         addDrop(ModBlocks.FLUORITE_DOOR, doorDrops(ModBlocks.FLUORITE_DOOR));
         addDrop(ModBlocks.FLUORITE_TRAPDOOR);
+
+        addDrop(ModBlocks.BLACKWOOD_LOG);
+        addDrop(ModBlocks.BLACKWOOD_WOOD);
+        addDrop(ModBlocks.STRIPPED_BLACKWOOD_LOG);
+        addDrop(ModBlocks.STRIPPED_BLACKWOOD_WOOD);
+        addDrop(ModBlocks.BLACKWOOD_PLANKS);
+        addDrop(ModBlocks.BLACKWOOD_SAPLING);
+
+        addDrop(ModBlocks.BLACKWOOD_LEAVES, leavesDrops(ModBlocks.BLACKWOOD_LEAVES, ModBlocks.BLACKWOOD_SAPLING, 0.0625f));
     }
 
     public LootTable.Builder multipleOreDrops(Block drop, Item item, float minDrops, float maxDrops) {

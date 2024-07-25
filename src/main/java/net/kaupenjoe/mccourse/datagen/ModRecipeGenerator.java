@@ -51,5 +51,6 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.FLUORITE), conditionsFromItem(ModItems.FLUORITE))
                 .offerTo(exporter, Identifier.of(MCCourseMod.MOD_ID, "raw_fluorite_2"));
 
+
     }
 }

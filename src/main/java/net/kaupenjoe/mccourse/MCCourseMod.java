@@ -8,11 +8,15 @@ import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.kaupenjoe.mccourse.block.ModBlocks;
 import net.kaupenjoe.mccourse.item.ModItemGroups;
 import net.kaupenjoe.mccourse.item.ModItems;
+import net.kaupenjoe.mccourse.world.biome.ModBiomes;
+import net.kaupenjoe.mccourse.world.biome.ModMaterialRules;
 import net.kaupenjoe.mccourse.world.gen.ModWorldGeneration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import terrablender.api.SurfaceRuleManager;
+import terrablender.api.TerraBlenderApi;
 
-public class MCCourseMod implements ModInitializer {
+public class MCCourseMod implements ModInitializer, TerraBlenderApi {
 	public static final String MOD_ID = "mccourse";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
@@ -43,5 +47,15 @@ public class MCCourseMod implements ModInitializer {
 
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.BLACKWOOD_PLANKS, 5, 20);
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.BLACKWOOD_LEAVES, 30, 60);
+	}
+
+	@Override
+	public void onTerraBlenderInitialized() {
+		ModBiomes.registerBiomes();
+
+		// Register our surface rules
+		SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MOD_ID, ModMaterialRules.makeKaupenValleyRules());
+		SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.NETHER, MOD_ID, ModMaterialRules.makeGlowstonePlainsRules());
+		SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.END, MOD_ID, ModMaterialRules.makeEndRotRules());
 	}
 }
